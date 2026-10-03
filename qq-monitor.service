@@ -1,0 +1,16 @@
+[Unit]
+Description=QQ channel monitor for NPU second-hand market (monitor selling posts)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/qq-monitor
+Environment=TZ=Asia/Shanghai
+ExecStart=/usr/bin/python3 /home/ubuntu/qq-monitor/monitor.py
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
